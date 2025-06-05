@@ -8,7 +8,9 @@ public class SPBUMain {
 
         int pilihan;
         do {
-            System.out.println("\n--- MENU SPBU --- ");
+            System.out.println("\n================================= ");
+            System.out.println("\n----------- MENU SPBU ----------- ");
+            System.out.println("\n================================= ");
             System.out.println("1. Tambah Antrian Kendaraan");
             System.out.println("2. Tampilkan Antrian");
             System.out.println("3. Jumlah Antrian");
@@ -21,11 +23,11 @@ public class SPBUMain {
 
             switch (pilihan) {
                 case 1:
-                    System.out.print("Plat Nomor : ");
+                    System.out.print("Masukkan Plat Nomor : ");
                     String plat = sc.nextLine();
-                    System.out.print("Tipe Kendaraan: ");
+                    System.out.print("Masukkan Tipe Kendaraan: ");
                     String tipe = sc.nextLine();
-                    System.out.print("Merek Kendaraan: ");
+                    System.out.print("Masukkan Merek Kendaraan: ");
                     String merek = sc.nextLine();
                     antrian.tambah(new kendaraan(plat, tipe, merek));
                     System.out.println(">>> Kendaraan Masuk Antrian <<<");
@@ -42,13 +44,13 @@ public class SPBUMain {
                         System.out.println(">>> Tidak Ada Kendaraan <<<");
                         break;
                     }
-                    System.out.println(">>> Melayani <<<");
+                    System.out.println(">>> Petugas Melayani <<<");
                     dilayani.tampilkanInformasi();
-                    System.out.print("Jenis BBM: ");
+                    System.out.print("Masukkan Jenis BBM: ");
                     String jenis = sc.nextLine();
-                    System.out.print("Harga Per Liter: ");
+                    System.out.print("Masukkan Harga Per Liter: ");
                     double harga = sc.nextDouble();
-                    System.out.print("Jumlah Liter: ");
+                    System.out.print("Masukkan Jumlah Liter: ");
                     double liter = sc.nextDouble();
                     sc.nextLine();
 
@@ -64,7 +66,7 @@ public class SPBUMain {
                     System.out.println(">>> Terima Kasih <<<");
                     break;
                 default:
-                    System.out.println("> Pilihan Tidak Valid <<<");
+                    System.out.println(">>> Pilihan Tidak Valid <<<");
             }
         } while (pilihan != 0);
     }
