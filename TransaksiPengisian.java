@@ -11,9 +11,8 @@ public class TransaksiPengisian {
     }
 
     public void tampilkanTransaksi() {
-        System.out.println("Transaksi Pengisian BBM:");
-        System.out.println("Jenis BBM: " + bbm.namaBBM);
-        System.out.println("Jumlah Liter: " + jumlahLiter);
+        System.out.println("Riwayat Transaksi Pengisian BBM:");
+        kendaraan.tampilkanInformasi();
         System.out.println("Total Harga: Rp" + totalHarga);
     }
 }
