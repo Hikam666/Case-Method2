@@ -9,7 +9,7 @@ public class kendaraan {
         this.merek = merek;
     }
 
-    public void tampilInformasi () {
+    public void tampilkanInformasi () {
         System.out.println(platNomor + " - " + tipe + " - " + merek);
     }
 }
