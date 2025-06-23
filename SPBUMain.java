@@ -1,9 +1,12 @@
 import java.util.Scanner;
 
 public class SPBUMain {
+    //keyword          method  parameter
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        //tipe data      variabel       objek
         AntrianKendaraan antrian = new AntrianKendaraan();
+        //tipe data      variabel       objek
         QueueTransaksi riwayat = new QueueTransaksi(10);
 
         int pilihan;
@@ -16,6 +19,8 @@ public class SPBUMain {
             System.out.println("3. Jumlah Antrian");
             System.out.println("4. Layani Kendaraan & Catat Transaksi");
             System.out.println("5. Tampilkan Riwayat Transaksi");
+            System.out.println("6. Kosongkan Antrian Transaksi");
+            System.out.println("7. Cari Transaksi Berdasarkan Jumlah Liter");
             System.out.println("0. Keluar");
             System.out.print("Pilih : ");
             pilihan = sc.nextInt();
@@ -41,17 +46,31 @@ public class SPBUMain {
                 case 4:
                     kendaraan dilayani = antrian.layanan();
                     if (dilayani == null) {
-                        System.out.println(">>> Tidak Ada Kendaraan <<<");
-                        break;
+                    System.out.println(">>> Tidak Ada Kendaraan <<<");
+                    break;
                     }
                     System.out.println(">>> Petugas Melayani <<<");
                     dilayani.tampilkanInformasi();
                     System.out.print("Masukkan Jenis BBM: ");
                     String jenis = sc.nextLine();
+
                     System.out.print("Masukkan Harga Per Liter: ");
-                    double harga = sc.nextDouble();
+                    double harga;
+                    do {
+                    harga = sc.nextDouble();
+                    if (harga <= 0) {
+                    System.out.print("Harga harus lebih dari 0. Masukkan lagi: ");
+                    }
+                    } while (harga <= 0);
+
                     System.out.print("Masukkan Jumlah Liter: ");
-                    double liter = sc.nextDouble();
+                    double liter;
+                    do {
+                    liter = sc.nextDouble();
+                    if (liter <= 0) {
+                    System.out.print("Jumlah liter harus lebih dari 0. Masukkan lagi: ");
+                    }
+                    } while (liter <= 0);
                     sc.nextLine();
 
                     BBM bbm = new BBM(jenis, harga);
@@ -59,6 +78,7 @@ public class SPBUMain {
                     riwayat.enqueue(t);
                     System.out.println(">>> Transaksi Tercatat <<<");
                     break;
+                    
                 case 5:
                     riwayat.tampilkanTransaksi();
                     break;
@@ -67,7 +87,19 @@ public class SPBUMain {
                     break;
                 default:
                     System.out.println(">>> Pilihan Tidak Valid <<<");
+                    
+                // Modifikasi UAS
+                case 6:
+                    riwayat.kosongkan();
+                    System.out.println(">>> Antrian Transaksi Telah Dikosongkan <<<");
+                    break;
+                case 7:
+                    System.out.print("Masukkan Jumlah Liter yang Dicari: ");
+                    double cariLiter = sc.nextDouble();
+                    riwayat.cariTransaksiBerdasarkanLiter(cariLiter);
+                    break;
             }
+
         } while (pilihan != 0);
     }
 }

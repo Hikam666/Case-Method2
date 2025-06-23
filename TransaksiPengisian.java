@@ -1,9 +1,11 @@
 public class TransaksiPengisian {
+    // tipedata | variable
     kendaraan kendaraan;
     BBM bbm;
     double jumlahLiter, totalHarga;
 
     public TransaksiPengisian(kendaraan kendaraan, BBM bbm, double jumlahLiter) {
+        //referensi | atribut kelas | parameter
         this.kendaraan = kendaraan;
         this.bbm = bbm;
         this.jumlahLiter = jumlahLiter;
